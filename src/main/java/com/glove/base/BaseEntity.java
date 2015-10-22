@@ -1,17 +1,18 @@
 package com.glove.base;
 
-import javax.persistence.Column;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * Created by Frank on 2015/10/21.
  */
-public class BaseEntity implements Serializable{
+public abstract class BaseEntity{
 
     @Id
-    @Column(name="id",length=32,nullable=false,unique=true)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long id;
 
     public Long getId() {
         return id;
